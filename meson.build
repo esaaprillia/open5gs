@@ -47,6 +47,8 @@ python3_exe = join_paths(python3.full_path())
 else
 python3_exe = join_paths(python3.path())
 endif
+@0@ = @PKG_INSTALL_DIR@
+@1@ = @PKG_INSTALL_DIR@
 mkdir_p = 'import os; os.makedirs("@0@", exist_ok=True) if not os.environ.get("DESTDIR") else False;'
 symlink = 'import os; os.symlink("@0@", "@1@") if not os.environ.get("DESTDIR") and not os.path.islink("@1@") else False;'
 install_conf = 'import os; import shutil; shutil.copy("@0@", "@1@") if not os.environ.get("DESTDIR") and not os.path.isfile(os.path.join("@1@", os.path.split("@0@")[1])) else False;'
